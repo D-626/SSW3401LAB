@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'block.dart'; 
 
 void main() {
   runApp(const MyApp());
@@ -23,11 +24,10 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.blue,
           title: const Text("Profile"),
         ),
-        // Main page layout: enable scrolling and center the content
         body: const SingleChildScrollView(
           child: Center(
             child: Padding(
-              padding: EdgeInsets.only(top: 30.0), // Top margin
+              padding: EdgeInsets.only(top: 30.0),
               child: ProfileHeader(),
             ),
           ),
@@ -43,132 +43,74 @@ class ProfileHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisSize: MainAxisSize.min, // Wrap content instead of filling screen
-      crossAxisAlignment: CrossAxisAlignment.center, // Center items horizontally
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        // 1. Main Avatar
         ClipOval(
           child: Image.asset(
             'assets/images/profile.jpg',
-            width: 200, 
+            width: 200,
             height: 200,
-            fit: BoxFit.cover, // Prevent distortion
+            fit: BoxFit.cover,
           ),
         ),
-        const SizedBox(height: 10), 
+        const SizedBox(height: 10),
 
-        // 2. Name
         const Text(
-          "Nai Long", 
+          "Nai Long",
           style: TextStyle(
-            fontSize: 30, 
+            fontSize: 30,
             fontWeight: FontWeight.bold,
           ),
         ),
-        const SizedBox(height: 10), 
+        const SizedBox(height: 10),
 
-        // 3. Student Tag
         Container(
-          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6), 
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
           decoration: BoxDecoration(
-            color: Colors.grey, 
-            borderRadius: BorderRadius.circular(88.888), 
+            color: Colors.grey,
+            borderRadius: BorderRadius.circular(88.888),
           ),
           child: const Row(
             mainAxisSize: MainAxisSize.min,
             children: [
               Icon(Icons.school, size: 17, color: Colors.yellow),
-              SizedBox(width: 4), 
+              SizedBox(width: 4),
               Text("Student", style: TextStyle(fontWeight: FontWeight.bold)),
             ],
           ),
         ),
-        const SizedBox(height: 40), 
+        const SizedBox(height: 40),
 
-        // 4. Bottom Cards Row
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween, 
-            children: [
-              // ================= Card 1 =================
-              Container(
-                padding: const EdgeInsets.all(16), // Card inner padding
-                decoration: const BoxDecoration(
-                  color: Colors.yellowAccent, 
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start, // Align content to left
-                  children: [
-                    Image.asset(
-                      'assets/images/profile2.jpg', 
-                      width: 38, 
-                    ),
-                    const SizedBox(height: 10),
-                    const Text("hehe"), 
-                    const SizedBox(height: 10), 
-                    const Text("hehe"), 
-                  ],
-                ),
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: const [
+              Block(
+                "hehe", 
+                "assets/images/profile2.jpg", 
+                colour: Colors.yellowAccent, 
+                imageWidth: 38,
               ),
 
-              // ================= Card 2 =================
-              Container(
-                padding: const EdgeInsets.all(16),
-                decoration: const BoxDecoration(
-                  color: Colors.yellowAccent,
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Image.asset(
-                      'assets/images/profile2.jpg',
-                      width: 38,
-                    ),
-                    const SizedBox(height: 10),
-                    const Text("hehe"),
-                    const SizedBox(height: 10),
-                    const Text("hehe"),
-                  ],
-                ),
+              Block(
+                "hehe", 
+                "assets/images/profile2.jpg", 
+                colour: Colors.yellowAccent, 
+                imageWidth: 38,
               ),
 
-              // ================= Card 3 (Purple) =================
-              Container(
-                padding: const EdgeInsets.all(16),
-                decoration: const BoxDecoration(color: Colors.purpleAccent), 
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Image.asset(
-                      'assets/images/profile2.jpg',
-                      width: 50, 
-                    ),
-                    const SizedBox(height: 10),
-                    const Text("hehe"),
-                    const SizedBox(height: 10),
-                    const Text("hehe"),
-                  ],
-                ),
+              Block(
+                "hehe", 
+                "assets/images/profile2.jpg", 
+                colour: Colors.purpleAccent,
               ),
 
-              // ================= Card 4 =================
-              Container(
-                padding: const EdgeInsets.all(16),
-                decoration: const BoxDecoration(color: Colors.yellowAccent),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Image.asset(
-                      'assets/images/profile2.jpg',
-                      width: 50, 
-                    ),
-                    const SizedBox(height: 10),
-                    const Text("hehe"),
-                    const SizedBox(height: 10),
-                    const Text("hehe"),
-                  ],
-                ),
+              Block(
+                "hehe", 
+                "assets/images/profile2.jpg", 
+                colour: Colors.yellowAccent,
               ),
             ],
           ),
